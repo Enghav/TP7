@@ -1,0 +1,644 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <title>Document</title>
+  </head>
+  <body class="m-10">
+    <div class="flex">
+      <div
+        class="flex justify-between items-center w-[400px] border-2 border-slate-300 h-[84px]"
+      >
+        <div class="ml-5 text-2xl font-bold text-blue-500">Message</div>
+        <div class="flex">
+          <div
+            class="absolute translate-x-[-40px] stroke-current text-gray-500 mt-1 bg-gray-200 mr-5 rounded-[50px] p-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M16.862 4.487l1.687-1.688a1.875 1.875 0 112.652 2.652L10.582 16.07a4.5 4.5 0 01-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 011.13-1.897l8.932-8.931zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0115.75 21H5.25A2.25 2.25 0 013 18.75V8.25A2.25 2.25 0 015.25 6H10"
+              />
+            </svg>
+          </div>
+          <div
+            class="stroke-current text-gray-500 mt-1 bg-gray-200 mr-5 rounded-[50px] p-1"
+          >
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 105.196 5.196a7.5 7.5 0 0010.607 10.607z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div
+          class="w-[600px] h-[84px] border-l-0 border-2 border-slate-300 absolute flex justify-between"
+        >
+          <div>
+            <div>
+              <div>
+                <img
+                  class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2 ml-3 mt-4"
+                  src="data:image/png;base64,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"
+                />
+              </div>
+              <div
+                class="translate-x-[70px] translate-y-[-50px] text-xl font-medium text-slate-700"
+              >
+                Odama Studio
+              </div>
+              <div
+                class="translate-x-[70px] translate-y-[-50px] text-[12px] text-green-500"
+              >
+                Mas happy typing...
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="absolute translate-x-[50px] translate-y-[25px]">
+              <img
+                class="w-[30px] h-[30px] border-2 border-slate-300 rounded-[50px]"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB7RWP-ntuHhdxDONcT9QCkUuQd9bXLgoYSQ&usqp=CAU"
+              />
+            </div>
+            <div class="absolute translate-x-[65px] translate-y-[25px]">
+              <img
+                class="w-[30px] h-[30px] border-2 border-slate-300 rounded-[50px]"
+                src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Image.png"
+              />
+            </div>
+            <div class="absolute translate-x-[80px] translate-y-[25px]">
+              <img
+                class="w-[30px] h-[30px] border-2 border-slate-300 rounded-[50px]"
+                src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png"
+              />
+            </div>
+            <div
+              class="absolute translate-x-[95px] translate-y-[25px] w-[30px] h-[30px] border-2 border-slate-300 rounded-[50px] bg-gray-300 text-center text-gray-500"
+            >
+              14
+            </div>
+          </div>
+          <div class="flex items-center gap-3 stroke-current text-gray-500">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  d="M15.75 10.5l4.72-4.72a.75.75 0 011.28.53v11.38a.75.75 0 01-1.28.53l-4.72-4.72M4.5 18.75h9a2.25 2.25 0 002.25-2.25v-9a2.25 2.25 0 00-2.25-2.25h-9A2.25 2.25 0 002.25 7.5v9a2.25 2.25 0 002.25 2.25z"
+                />
+              </svg>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 6.75c0 8.284 6.716 15 15 15h2.25a2.25 2.25 0 002.25-2.25v-1.372c0-.516-.351-.966-.852-1.091l-4.423-1.106c-.44-.11-.902.055-1.173.417l-.97 1.293c-.282.376-.769.542-1.21.38a12.035 12.035 0 01-7.143-7.143c-.162-.441.004-.928.38-1.21l1.293-.97c.363-.271.527-.734.417-1.173L6.963 3.102a1.125 1.125 0 00-1.091-.852H4.5A2.25 2.25 0 002.25 4.5v2.25z"
+                />
+              </svg>
+            </div>
+            <div class="mr-5">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M8.625 12a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H8.25m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0H12m4.125 0a.375.375 0 11-.75 0 .375.375 0 01.75 0zm0 0h-.375M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="flex w-[1200px]">
+      <div
+        class="w-[400px] border-2 border-slate-300 h-[650px] border-t-0 rounded-l-[10px] rounded-t-none"
+      >
+        <div class="flex p-3 pl-6">
+          <div class="stroke-current text-gray-400">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+              />
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+              />
+            </svg>
+          </div>
+          <div class="font-medium text-gray-400">Pinned Message</div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="data:image/png;base64,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"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Odama Studio</div>
+              <div class="text-[12px] text-green-500">Mas happy typing...</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>05:11 PM</div>
+            <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://cdn.dribbble.com/users/10464510/avatars/normal/2da504c7be9549c01971d8ed468d7b46.png?1643369371"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">
+                Hatypo Studio
+              </div>
+              <div class="text-[12px] text-gray-500">Momon:Lahh gas!</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>02:11 PM</div>
+            <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://media.licdn.com/dms/image/D5603AQFng7KiM_hVOw/profile-displayphoto-shrink_400_400/0/1670512211273?e=1694044800&v=beta&t=9GNAc-4bQ5GUNz9pfEtWjWMov5M4ZledGRQ5Zw2WUIA"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Nolaa</div>
+              <div class="text-[12px] text-gray-500">keren banger!</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>15:11 PM</div>
+            <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex p-3 pl-6">
+          <div class="stroke-current text-gray-400 mr-1">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="w-6 h-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M7.5 8.25h9m-9 3H12m-9.75 1.51c0 1.6 1.123 2.994 2.707 3.227 1.129.166 2.27.293 3.423.379.35.026.67.21.865.501L12 21l2.755-4.133a1.14 1.14 0 01.865-.501 48.172 48.172 0 003.423-.379c1.584-.233 2.707-1.626 2.707-3.228V6.741c0-1.602-1.123-2.995-2.707-3.228A48.394 48.394 0 0012 3c-2.392 0-4.744.175-7.043.513C3.373 3.746 2.25 5.14 2.25 6.741v6.018z"
+              />
+            </svg>
+          </div>
+          <div class="font-medium text-gray-400">All Message</div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB7RWP-ntuHhdxDONcT9QCkUuQd9bXLgoYSQ&usqp=CAU"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Mas Happy</div>
+              <div class="text-[12px] text-green-500">Typing...</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>00:11 PM</div>
+            <!-- <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">2</div>
+            </div> -->
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Image.png"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Mas Rohmad</div>
+              <div class="text-[12px] text-gray-500">
+                Zaa jo lali ngeshot yaa
+              </div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>12:11 PM</div>
+            <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">2</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://www.pngall.com/wp-content/uploads/12/Avatar-Profile-Vector-PNG-Clipart.png"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Mas Listain</div>
+              <div class="text-[12px] text-gray-500">Mantapp za..</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>1:11 AM</div>
+            <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">1</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCY2gwsO9_bK6frH3p3s49WY8q0pwP8k2OlA&usqp=CAU"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Rafi Rohmat</div>
+              <div class="text-[12px] text-gray-500">Voice Message</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>Yesterday</div>
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://static.vecteezy.com/system/resources/previews/006/898/691/original/avatar-face-icon-female-social-profile-of-business-woman-woman-portrait-support-service-call-center-illustration-vector.jpg"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Caca</div>
+              <div class="text-[12px] text-rose-500">Something wrong</div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>05:11 PM</div>
+            <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">!</div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-between p-2 pt-0">
+          <div class="flex pl-3">
+            <div>
+              <img
+                class="w-[50px] h-[50px] rounded-[50px] border-2 mr-2"
+                src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQCLp8IK91xCk6i49ECEhUpqx2XN-3pO2VamA&usqp=CAU"
+              />
+            </div>
+            <div class="flex flex-col">
+              <div class="text-xl font-medium text-slate-700">Farhan</div>
+              <div class="text-[12px] text-gray-500">
+                Zaa udah tak update di figma
+              </div>
+            </div>
+          </div>
+          <div class="flex-col pr-5">
+            <div>Yesterday</div>
+            <!-- <div
+              class="ml-10 w-[20px] h-[20px] bg-rose-600 rounded-[50px] text-slate-200 text-center"
+            >
+              <div class="translate-y-[-3px]">2</div>
+            </div> -->
+          </div>
+        </div>
+      </div>
+      <div
+        class="w-[600px] border-2 border-slate-300 h-[650px] border-t-0 border-l-0 bg-slate-200 rounded-b-[10px] rounded-l-none"
+      >
+        <div
+          class="bg-slate-100 w-[90px] p-1 text-[13px] rounded-[20px] translate-x-[260px] mt-2"
+        >
+          Today ,Jan 30
+        </div>
+        <div>
+          <div class="absolute translate-x-[20px] translate-y-[25px]">
+            <img
+              class="w-[45px] h-[45px] border-2 border-slate-300 rounded-[50px]"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB7RWP-ntuHhdxDONcT9QCkUuQd9bXLgoYSQ&usqp=CAU"
+            />
+          </div>
+          <div class="flex flex-col text-[15px]">
+            <div
+              class="translate-x-[75px] translate-y-[25px] flex flex-row gap-5 text-[15px] font-medium"
+            >
+              <div>Mas Happy</div>
+              <div class="font-normal text-[10px] translate-y-[5px]">
+                05:00 PM
+              </div>
+            </div>
+            <div class="translate-x-[75px] translate-y-[30px] gap-2">
+              <div
+                class="text-[10px] bg-slate-100 w-[180px] p-1 rounded-r-[10px] rounded-b-[10px] mb-2"
+              >
+                Guyss tahum depon liburan ke Jepan!
+              </div>
+              <div
+                class="text-[10px] w-[230px] bg-slate-100 p-1 rounded-r-[10px] rounded-b-[10px]"
+              >
+                Minto tolang nanti dibuat pembagian tugas kaya biasa
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end pr-4 mt-10">
+          <div class="absolute">
+            <img
+              class="w-[45px] h-[45px] border-2 border-slate-300 rounded-[50px]"
+              src="https://cdn.pixabay.com/photo/2015/06/22/08/40/child-817373_1280.jpg"
+            />
+          </div>
+          <div class="flex flex-col text-[15px]">
+            <div
+              class="flex flex-row gap-5 text-[15px] font-medium justify-end translate-x-[-50px]"
+            >
+              <div class="font-normal text-[10px] translate-y-[5px]">
+                06:12 PM
+              </div>
+              <div>You</div>
+            </div>
+            <div class="translate-x-[-10px] translate-y-[10px] gap-2">
+              <div
+                class="bg-blue-500 w-[45px] text-[10px] p-1 mb-2 rounded-l-[10px] rouneded-r-none rounded-b-[10px]"
+              >
+                Gokill!!!
+              </div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="absolute translate-x-[20px] translate-y-[25px]">
+            <img
+              class="w-[45px] h-[45px] border-2 border-slate-300 rounded-[50px]"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB7RWP-ntuHhdxDONcT9QCkUuQd9bXLgoYSQ&usqp=CAU"
+            />
+          </div>
+          <div class="flex flex-col text-[15px]">
+            <div
+              class="translate-x-[75px] translate-y-[25px] flex flex-row gap-5 text-[15px] font-medium"
+            >
+              <div>Mas Rohmad</div>
+              <div class="font-normal text-[10px] translate-y-[5px]">
+                05:10 PM
+              </div>
+            </div>
+            <div class="translate-x-[75px] translate-y-[30px] gap-2">
+              <div
+                class="bg-slate-100 w-[55px] text-[10px] rounded-r-[10px] rounded-b-[10px] p-1 mb-2"
+              >
+                teran ke??
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-3">
+          <div class="absolute translate-x-[20px] translate-y-[25px]">
+            <img
+              class="w-[45px] h-[45px] border-2 border-slate-300 rounded-[50px]"
+              src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSB7RWP-ntuHhdxDONcT9QCkUuQd9bXLgoYSQ&usqp=CAU"
+            />
+          </div>
+          <div class="flex flex-col text-[15px]">
+            <div
+              class="translate-x-[75px] translate-y-[25px] flex flex-row gap-5 text-[15px] font-medium"
+            >
+              <div>Mas Rohmad</div>
+              <div class="font-normal text-[10px] translate-y-[5px]">
+                05:10 PM
+              </div>
+            </div>
+            <div class="translate-x-[75px] translate-y-[30px] gap-2">
+              <div
+                class="text-[10px] text-blue-600 bg-slate-100 w-[165px] rounded-r-[10px] rounded-b-[10px] p-1 mb-2"
+              >
+                @Mas Listain @Fozaa @Mba Nayu
+              </div>
+              <div
+                class="text-[10px] bg-slate-100 w-[165px] rounded-r-[10px] rounded-b-[10px] p-1 mb-2"
+              >
+                <div>Mintol cek Figma ini dong</div>
+                <div>
+                  <a
+                    class="text-blue-600 underline"
+                    href="https://www.figma.com/files/recents"
+                    >https://www.figma.com/files/recents</a
+                  >
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="flex justify-end pr-4 mt-10">
+          <div class="absolute">
+            <img
+              class="w-[45px] h-[45px] border-2 border-slate-300 rounded-[50px]"
+              src="https://cdn.pixabay.com/photo/2015/06/22/08/40/child-817373_1280.jpg"
+            />
+          </div>
+          <div class="flex flex-col text-[15px]">
+            <div
+              class="flex flex-row gap-5 text-[15px] font-medium justify-end translate-x-[-50px]"
+            >
+              <div class="font-normal text-[10px] translate-y-[5px]">
+                06:12 PM
+              </div>
+              <div>You</div>
+            </div>
+            <div class="translate-x-[-50px] translate-y-[10px] gap-2">
+              <div
+                class="bg-blue-500 w-[150px] text-[10px] p-1 mb-2 rounded-l-[10px] rouneded-r-none rounded-b-[10px]"
+              >
+                Wokee siap mas! utwi cek🔥🔥
+              </div>
+            </div>
+          </div>
+        </div>
+        <div
+          class="h-[50px] text-[10px] stroke-current text-gray-500 flex flex-row w-[560px] bg-slate-400 translate-y-[110px] translate-x-[20px] rounded-[10px] p-3 justify-between"
+        >
+          <div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M12 18.75a6 6 0 006-6v-1.5m-6 7.5a6 6 0 01-6-6v-1.5m6 7.5v3.75m-3.75 0h7.5M12 15.75a3 3 0 01-3-3V4.5a3 3 0 116 0v8.25a3 3 0 01-3 3z"
+                />
+              </svg>
+            </div>
+            <div class="ml-7 translate-y-[-20px]">Type a message</div>
+          </div>
+          <div class="flex gap-1">
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M2.25 15.75l5.159-5.159a2.25 2.25 0 013.182 0l5.159 5.159m-1.5-1.5l1.409-1.409a2.25 2.25 0 013.182 0l2.909 2.909m-18 3.75h16.5a1.5 1.5 0 001.5-1.5V6a1.5 1.5 0 00-1.5-1.5H3.75A1.5 1.5 0 002.25 6v12a1.5 1.5 0 001.5 1.5zm10.5-11.25h.008v.008h-.008V8.25zm.375 0a.375.375 0 11-.75 0 .375.375 0 01.75 0z"
+                />
+              </svg>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.182 15.182a4.5 4.5 0 01-6.364 0M21 12a9 9 0 11-18 0 9 9 0 0118 0zM9.75 9.75c0 .414-.168.75-.375.75S9 10.164 9 9.75 9.168 9 9.375 9s.375.336.375.75zm-.375 0h.008v.015h-.008V9.75zm5.625 0c0 .414-.168.75-.375.75s-.375-.336-.375-.75.168-.75.375-.75.375.336.375.75zm-.375 0h.008v.015h-.008V9.75z"
+                />
+              </svg>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M6 12L3.269 3.126A59.768 59.768 0 0121.485 12 59.77 59.77 0 013.27 20.876L5.999 12zm0 0h7.5"
+                />
+              </svg>
+            </div>
+            <div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-6 h-6"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15 10.5a3 3 0 11-6 0 3 3 0 016 0z"
+                />
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M19.5 10.5c0 7.142-7.5 11.25-7.5 11.25S4.5 17.642 4.5 10.5a7.5 7.5 0 1115 0z"
+                />
+              </svg>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
